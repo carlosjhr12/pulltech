@@ -1,0 +1,30 @@
+@import '../constants.scss';
+
+.load-more {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 100px;
+
+	button {
+		display: flex;
+		width: 50vw;
+		align-items: center;
+		justify-content: center;
+		color: $orange;
+		background-color: white;
+		// gap: 10px;
+		padding: 15px;
+		border: none;
+		border-radius: 5px;
+		font-size: 12pt;
+		font-weight: 600;
+		box-shadow: 0px 2px 12px -3px $ligth-gray;
+		cursor: pointer;
+
+		&:hover {
+			background-color: $orange;
+			color: white;
+		}
+	}
+
+}

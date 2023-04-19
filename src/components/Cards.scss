@@ -1,0 +1,17 @@
+@import '../constants.scss';
+
+.main {
+	display: flex;
+	justify-content: center;
+	margin: 60px $external-padding 20px;
+	padding: $external-padding;
+	background-color: #e8e8e8;
+
+	.cards {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 20px;
+		width: 1060px;
+	}
+}

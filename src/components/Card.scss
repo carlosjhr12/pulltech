@@ -1,0 +1,162 @@
+@import '../constants.scss';
+
+.card {
+	// height: 300px;
+	width: 250px;
+	box-shadow: 0px 2px 12px -3px $ligth-gray;
+	border-radius: 6px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	overflow: hidden;
+	background-color: white;
+
+	&:hover {
+		.image-info {
+			img {
+				height: 110%;
+				transition: all 1s;
+			}
+		}
+
+		// .description-info {
+		// 	button {
+		// 		display: flex;
+		// 		transition: all 1s;
+		// 	}
+		// }
+	}
+
+	.image-info {
+		position: relative;
+		height: 150px;
+		width: 100%;
+		display: flex;
+		align-items: flex-end;
+		justify-content: center;
+		background-color: whitesmoke;
+
+		img {
+			height: 100%;
+			position: absolute;
+		}
+
+		p {
+			position: absolute;
+			width: 90px;
+			background-color: $green;
+			color: white;
+			padding: 5px;
+			font-size: 8pt;
+			left: 140px;
+			border-radius: 5px;
+		}
+	}
+
+	.description-info {
+		display: flex;
+		flex-direction: column;
+		width: 230px;
+		justify-content: space-between;
+		padding: 10px 10px;
+
+		.product-container {
+			display: flex;
+			flex-direction: column;
+
+			.product-name {
+				font-size: 12pt;
+				font-weight: 400;
+				margin: 0;
+				width: 210px;
+				height: 40px;
+				overflow: hidden;
+			}
+
+			.free-shipping {
+				font-size: 10pt;
+				color: $green;
+				margin-top: 7px;
+			}
+		}
+
+		.price-container {
+			display: flex;
+			width: 230px;
+			// height: 40px;
+			// gap: 50px;
+			justify-content: space-between;
+			align-items: center;
+
+			.price {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+
+				.final-price {
+					color: $orange;
+					font-size: 14pt;
+				}
+
+				.descount {
+					color: $dark-gray;
+					background-color: $ligth-gray;
+					padding: 5px;
+					font-size: 10pt;
+					border-radius: 5px;
+				}
+
+				.original-price {
+					text-decoration: line-through;
+					font-size: 10pt;
+				}
+			}
+
+			.addSeller {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background-color: $orange;
+				border-radius: 5px;
+
+				img {
+					filter: brightness(0) saturate(100%) invert(100%) sepia(14%) saturate(0%) hue-rotate(222deg) brightness(106%) contrast(100%);
+					width: 15px;
+					padding: 8px;
+				}
+			}
+
+		}
+
+		button {
+			display: flex;
+			transition: all 1s;
+			// display: none;
+			align-items: center;
+			justify-content: center;
+			background-color: $orange;
+			gap: 10px;
+			border: none;
+			border-radius: 5px;
+			margin-top: 10px;
+			color: white;
+			height: 50px;
+
+			&:hover {
+				opacity: 0.8;
+			}
+
+			img {
+				width: 15px;
+				filter: brightness(0) saturate(100%) invert(100%) sepia(14%) saturate(0%) hue-rotate(222deg) brightness(106%) contrast(100%);
+			}
+
+			p {
+				text-transform: capitalize;
+				font-size: 12pt;
+			}
+		}
+
+
+	}
+}
