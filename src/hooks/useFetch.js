@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 export function useFetch(url) {
 	const [product, setProduct] = useState([])
+	// console.log('product', product);
+
 	// const urlApi = 'https://fakestoreapi.com/products'; // Get all products
 	// const urlApi = 'https://fakestoreapi.com/products/1'; // Get a single product
 	// const urlApi = 'https://fakestoreapi.com/products?limit=5'; // Limit results

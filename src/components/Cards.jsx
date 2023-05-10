@@ -6,8 +6,7 @@ import './Cards.scss'
 export const Cards = () => {
 
 	const [productsToShow, setProductsToShow] = useState(6)
-
-	const { product } = useFetch(`https://fakestoreapi.com/products?limit=${productsToShow}`);
+	const { product } = useFetch('https://fakestoreapi.com/products');
 	const percent = 10;
 
 	return (

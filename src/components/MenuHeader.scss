@@ -1,5 +1,9 @@
 @import '../constants.scss';
 
+*{
+	margin: 0;
+	padding: 0;
+}
 .header {
 	.header-up {
 		display: flex;
@@ -50,6 +54,50 @@
 			border-radius: 6px;
 			border: none;
 			box-shadow: 0px 2px 12px -3px $ligth-gray;
+			min-width: 420px;
+		}
+	}
+
+	.header-icons {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 70px 100px 0;
+
+		.principal-icon {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 10px;
+			color: $ligth-gray;
+
+			img {
+				width: 40px;
+				filter: invert(6%) sepia(1%) saturate(1348%) hue-rotate(314deg) brightness(99%) contrast(69%); // dark-gray
+			}
+
+			p{
+				text-transform: uppercase;
+				font-size: 0.9rem;
+				font-weight: 500;
+			}
+
+			&:hover {
+				color: $orange;
+				cursor: pointer;
+
+				img {
+					filter: invert(37%) sepia(99%) saturate(814%) hue-rotate(321deg) brightness(97%) contrast(88%); // orange
+				}
+			}
+		}
+
+		.active {
+			color: $orange;
+			
+			img {
+				filter: invert(37%) sepia(99%) saturate(814%) hue-rotate(321deg) brightness(97%) contrast(88%); // orange
+			}
 		}
 	}
 }
