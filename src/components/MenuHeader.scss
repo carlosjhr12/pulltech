@@ -1,9 +1,9 @@
 @import '../constants.scss';
 
-*{
-	margin: 0;
-	padding: 0;
-}
+// *{
+// 	margin: 0;
+// 	padding: 0;
+// }
 .header {
 	.header-up {
 		display: flex;
@@ -76,7 +76,7 @@
 				filter: invert(6%) sepia(1%) saturate(1348%) hue-rotate(314deg) brightness(99%) contrast(69%); // dark-gray
 			}
 
-			p{
+			p {
 				text-transform: uppercase;
 				font-size: 0.9rem;
 				font-weight: 500;

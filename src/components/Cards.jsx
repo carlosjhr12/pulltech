@@ -1,19 +1,14 @@
-import { useState } from 'react';
-import { useFetch } from '../hooks/useFetch';
 import { Card } from './Card';
 import './Cards.scss'
 
-export const Cards = () => {
-
-	const [productsToShow, setProductsToShow] = useState(6)
-	const { product } = useFetch('https://fakestoreapi.com/products');
+export const Cards = ({products}) => {
 	const percent = 10;
 
 	return (
 		<main className='main'>
 			<div className="cards">
 				{
-					product.map(prod => (
+					products.map(prod => (
 						<Card
 							key={prod.id}
 							name={prod.title}

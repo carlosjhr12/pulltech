@@ -10,7 +10,7 @@ import otherPrincipalIcon from '../Images/Icons/principalMenuOthers.svg';
 import ondemandPrincipalIcon from '../Images/Icons/principalMenuOndemand.svg';
 import { useFetch } from '../hooks/useFetch';
 
-export const MenuHeader = ({getAll, getComputers, getTelephones, getAccessories, getOthers}) => {
+export const MenuHeader = ({getProducts}) => {
 	// const [categories, setCategories] = useState('')
 	// const myCategories =  ["electronics", "jewelery", "men's clothing", "women's clothing"];
 	const { product } = useFetch(`https://fakestoreapi.com/products/categories`);
@@ -31,26 +31,26 @@ export const MenuHeader = ({getAll, getComputers, getTelephones, getAccessories,
 		</div>
 		<div className="header-icons">
 			<div className="principal-icon active">
-				<img src={allPrincipalIcon} alt="All Icon" onClick={getAll} />
+				<img src={allPrincipalIcon} alt="All Icon" onClick={()=>getProducts('')} />
 				<p>ALL</p>
 			</div>
 			<div className="principal-icon">
-				<img src={computersPrincipalIcon} alt="Computers Icon" onClick={getComputers} />
+				<img src={computersPrincipalIcon} alt="Computers Icon" onClick={()=>getProducts('electronics')} />
 				<p>{product[0]}</p>
 				{/* <p>COMPUTERS</p> */}
 			</div>
 			<div className="principal-icon">
-				<img src={telephonePrincipalIcon} alt="Telephone Icon" onClick={getTelephones} />
+				<img src={telephonePrincipalIcon} alt="Telephone Icon" onClick={()=>getProducts('jewelery')} />
 				<p>{product[1]}</p>
 				{/* <p>TELEPHONE</p> */}
 			</div>
 			<div className="principal-icon">
-				<img src={accessoriesPrincipalIcon} alt="Accessories Icon" onClick={getAccessories} />
+				<img src={accessoriesPrincipalIcon} alt="Accessories Icon" onClick={()=>getProducts("men's clothing")} />
 				<p>{product[2]}</p>
 				{/* <p>ACCESSORIES</p> */}
 			</div>
 			<div className="principal-icon">
-				<img src={otherPrincipalIcon} alt="Other Icon" onClick={getOthers} />
+				<img src={otherPrincipalIcon} alt="Other Icon" onClick={()=>getProducts("women's clothing")} />
 				<p>{product[3]}</p>
 				{/* <p>OTHERS</p> */}
 			</div>
