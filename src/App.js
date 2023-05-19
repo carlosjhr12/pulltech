@@ -6,36 +6,32 @@ import { useFetch } from './hooks/useFetch';
 
 function App() {
   const url = 'https://fakestoreapi.com/products';
-  const { product } = useFetch(url);
-  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('');
-  // const [misProductos, setMisProductos] = useState([]);
+  const { products } = useFetch(url);
+  const [renderedProducts, setRenderedProducts] = useState(products);
+
+  useEffect(()=>{
+    setRenderedProducts(products);
+  },[products]);
 
   const getProductsByCategories = (category) => {
-    const urlCategoria = `${url}?category=${category}`;
-    setCategoriaSeleccionada(category); // Actualizamos la categoría seleccionada
-    return urlCategoria;
+    if(category === '') {
+      setRenderedProducts(products);
+      return;
+    } 
+    const productsByCategory = products.filter(prod => prod.category === category);
+    setRenderedProducts(productsByCategory);
+    return productsByCategory;
   }
 
-  // const urlApi = 'https://fakestoreapi.com/products/category/jewelery'; // Get products in a specific category
-  const urlCategoria = `${url}?category=${categoriaSeleccionada}`;
-  console.log(urlCategoria)
-  useFetch(urlCategoria);
-
-  // useEffect(() => {
-  //   if (categoriaSeleccionada) {
-  //     const urlCategoria = `${url}?category=${categoriaSeleccionada}`;
-
-  //     fetch(urlCategoria)
-  //       .then(res => res.json())
-  //       .then(data => setMisProductos(data))
-  //       .catch(err => console.log(err));
-  //   }
-  // }, [categoriaSeleccionada]);
+  const getProductById = id => {
+    // in this place I have the products ids
+    console.log('id', id)
+  }
 
   return (
     <div className="App">
       <MenuHeader getProducts={getProductsByCategories} />
-      <Cards products={product} />
+      <Cards products={renderedProducts} onClickHandler={getProductById}/>
     </div>
   );
 }

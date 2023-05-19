@@ -13,7 +13,7 @@ import { useFetch } from '../hooks/useFetch';
 export const MenuHeader = ({getProducts}) => {
 	// const [categories, setCategories] = useState('')
 	// const myCategories =  ["electronics", "jewelery", "men's clothing", "women's clothing"];
-	const { product } = useFetch(`https://fakestoreapi.com/products/categories`);
+	const { products } = useFetch(`https://fakestoreapi.com/products/categories`);
 
   return (
 	<header className='header'>
@@ -36,22 +36,22 @@ export const MenuHeader = ({getProducts}) => {
 			</div>
 			<div className="principal-icon">
 				<img src={computersPrincipalIcon} alt="Computers Icon" onClick={()=>getProducts('electronics')} />
-				<p>{product[0]}</p>
+				<p>{products[0]}</p>
 				{/* <p>COMPUTERS</p> */}
 			</div>
 			<div className="principal-icon">
 				<img src={telephonePrincipalIcon} alt="Telephone Icon" onClick={()=>getProducts('jewelery')} />
-				<p>{product[1]}</p>
+				<p>{products[1]}</p>
 				{/* <p>TELEPHONE</p> */}
 			</div>
 			<div className="principal-icon">
 				<img src={accessoriesPrincipalIcon} alt="Accessories Icon" onClick={()=>getProducts("men's clothing")} />
-				<p>{product[2]}</p>
+				<p>{products[2]}</p>
 				{/* <p>ACCESSORIES</p> */}
 			</div>
 			<div className="principal-icon">
 				<img src={otherPrincipalIcon} alt="Other Icon" onClick={()=>getProducts("women's clothing")} />
-				<p>{product[3]}</p>
+				<p>{products[3]}</p>
 				{/* <p>OTHERS</p> */}
 			</div>
 			{/* <div className="principal-icon">

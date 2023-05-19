@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 export function useFetch(url) {
-	const [product, setProduct] = useState([])
+	const [products, setProducts] = useState([])
 	// console.log('product', product);
 
 	// const urlApi = 'https://fakestoreapi.com/products'; // Get all products
@@ -15,10 +15,10 @@ export function useFetch(url) {
 	useEffect(() => {
 		fetch(url)
 			.then(res => res.json())
-			.then(data => setProduct(data))
+			.then(data => setProducts(data))
 			.catch(err => console.log(err))
-	}, []);
+	}, [url]);
 
-	return { product };
+	return { products };
 
 }
