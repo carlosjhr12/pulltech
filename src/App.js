@@ -3,10 +3,11 @@ import { MenuHeader } from './components/MenuHeader';
 import { Cards } from './components/Cards';
 import { useState, useEffect } from 'react';
 import { useFetch } from './hooks/useFetch';
+import { CircularProgress } from '@mui/material'
 
 function App() {
-  const url = 'https://fakestoreapi.com/products';
-  const { products } = useFetch(url);
+  const baseUrl = 'https://fakestoreapi.com/products';
+  const { products, loading } = useFetch(baseUrl);
   const [renderedProducts, setRenderedProducts] = useState(products);
 
   useEffect(()=>{
@@ -31,7 +32,11 @@ function App() {
   return (
     <div className="App">
       <MenuHeader getProducts={getProductsByCategories} />
-      <Cards products={renderedProducts} onClickHandler={getProductById}/>
+      {
+        loading 
+          ? <CircularProgress />
+          : <Cards products={renderedProducts} onClickHandler={getProductById}/>
+      }      
     </div>
   );
 }

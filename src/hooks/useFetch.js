@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 
 export function useFetch(url) {
 	const [products, setProducts] = useState([])
-	// console.log('product', product);
+	const [loading, setLoading] = useState(false)
 
 	// const urlApi = 'https://fakestoreapi.com/products'; // Get all products
 	// const urlApi = 'https://fakestoreapi.com/products/1'; // Get a single product
@@ -13,12 +13,20 @@ export function useFetch(url) {
 	// const urlApi = 'https://fakestoreapi.com/products?sort=desc'; // Sort results 'desc' or 'asc'
 
 	useEffect(() => {
+		setLoading(true)
+
 		fetch(url)
 			.then(res => res.json())
-			.then(data => setProducts(data))
-			.catch(err => console.log(err))
+			.then(data => {
+				setLoading(false)
+				setProducts(data)
+			})
+			.catch(err => {
+				setLoading(false)
+				console.log(err)
+			})
 	}, [url]);
 
-	return { products };
+	return { products, loading };
 
 }

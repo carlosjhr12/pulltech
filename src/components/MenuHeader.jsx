@@ -9,6 +9,8 @@ import accessoriesPrincipalIcon from '../Images/Icons/principalMenuAccessories.s
 import otherPrincipalIcon from '../Images/Icons/principalMenuOthers.svg';
 import ondemandPrincipalIcon from '../Images/Icons/principalMenuOndemand.svg';
 import { useFetch } from '../hooks/useFetch';
+import { Badge } from '@mui/material'
+import { ShoppingCart  } from '@mui/icons-material';
 
 export const MenuHeader = ({getProducts}) => {
 	// const [categories, setCategories] = useState('')
@@ -22,7 +24,10 @@ export const MenuHeader = ({getProducts}) => {
 			<div className="login">
 				<a href="">Sign Up</a>
 				<a href="">Login</a>
-				<img src={magnifyingIcon} alt="" />
+				{/* <img src={magnifyingIcon} alt="" /> */}
+				<Badge showZero badgeContent={4} color="error">
+					<ShoppingCart color="action" />
+				</Badge>
 			</div>
 		</div>
 		<div className="header-down">
