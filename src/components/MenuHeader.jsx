@@ -9,13 +9,13 @@ import accessoriesPrincipalIcon from '../Images/Icons/principalMenuAccessories.s
 import otherPrincipalIcon from '../Images/Icons/principalMenuOthers.svg';
 import ondemandPrincipalIcon from '../Images/Icons/principalMenuOndemand.svg';
 import { useFetch } from '../hooks/useFetch';
-import { Badge } from '@mui/material'
+import { Badge, Drawer, IconButton } from '@mui/material'
 import { ShoppingCart  } from '@mui/icons-material';
 
 export const MenuHeader = ({getProducts}) => {
-	// const [categories, setCategories] = useState('')
-	// const myCategories =  ["electronics", "jewelery", "men's clothing", "women's clothing"];
-	const { products } = useFetch(`https://fakestoreapi.com/products/categories`);
+	// const [first, setfirst] = useState(false)
+	const myCategories =  ["electronics", "jewelery", "men's clothing", "women's clothing"];
+	// const { products } = useFetch(`https://fakestoreapi.com/products/categories`);
 
   return (
 	<header className='header'>
@@ -24,10 +24,12 @@ export const MenuHeader = ({getProducts}) => {
 			<div className="login">
 				<a href="">Sign Up</a>
 				<a href="">Login</a>
-				{/* <img src={magnifyingIcon} alt="" /> */}
-				<Badge showZero badgeContent={4} color="error">
+				<Badge badgeContent={1} color="error">
 					<ShoppingCart color="action" />
-				</Badge>
+				</Badge>				
+				{/* <Drawer variant="permanent" anchor="right" open={false}>
+					<div>pepe</div>
+				</Drawer> */}				  
 			</div>
 		</div>
 		<div className="header-down">
@@ -40,23 +42,23 @@ export const MenuHeader = ({getProducts}) => {
 				<p>ALL</p>
 			</div>
 			<div className="principal-icon">
-				<img src={computersPrincipalIcon} alt="Computers Icon" onClick={()=>getProducts('electronics')} />
-				<p>{products[0]}</p>
+				<img src={computersPrincipalIcon} alt="Computers Icon" onClick={()=>getProducts("electronics")} />
+				<p>{myCategories[0]}</p>
 				{/* <p>COMPUTERS</p> */}
 			</div>
 			<div className="principal-icon">
-				<img src={telephonePrincipalIcon} alt="Telephone Icon" onClick={()=>getProducts('jewelery')} />
-				<p>{products[1]}</p>
+				<img src={telephonePrincipalIcon} alt="Telephone Icon" onClick={()=>getProducts("jewelery")} />
+				<p>{myCategories[1]}</p>
 				{/* <p>TELEPHONE</p> */}
 			</div>
 			<div className="principal-icon">
 				<img src={accessoriesPrincipalIcon} alt="Accessories Icon" onClick={()=>getProducts("men's clothing")} />
-				<p>{products[2]}</p>
+				<p>{myCategories[2]}</p>
 				{/* <p>ACCESSORIES</p> */}
 			</div>
 			<div className="principal-icon">
 				<img src={otherPrincipalIcon} alt="Other Icon" onClick={()=>getProducts("women's clothing")} />
-				<p>{products[3]}</p>
+				<p>{myCategories[3]}</p>
 				{/* <p>OTHERS</p> */}
 			</div>
 			{/* <div className="principal-icon">

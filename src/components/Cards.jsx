@@ -1,8 +1,21 @@
 import { Card } from './Card';
-import './Cards.scss'
+import './Cards.scss';
+import { useSelector, useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { fetchAllProducts } from '../features/slices/productSlice';
 
 export const Cards = ({products, onClickHandler}) => {
+	const dispatch = useDispatch();
 	const percent = 10;
+	// const productsState = useSelector(state => state.product);
+  	// console.log('productsState', productsState);
+
+	// console.log('fetchAllProducts', fetchAllProducts)
+
+	// useEffect(()=>{
+	// 	// setRenderedProducts(products);
+	// 	dispatch(fetchAllProducts())
+	// },[]);
 
 	return (
 		<main className='main'>

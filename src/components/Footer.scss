@@ -1,0 +1,16 @@
+@import '../constants.scss';
+
+.footer {
+	display: flex;
+	justify-content: center;
+    align-items: center;
+    flex-direction: column;
+	margin: 0 $external-padding;
+	padding: $external-padding;
+	background-color: $orange;
+    gap: 12px;
+
+    .logo {
+        width: 130px;
+    }
+}

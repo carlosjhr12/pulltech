@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react'
+// import axios from 'axios';
+// import { setProductList } from '../features/slices/productSlice';
+
 
 export function useFetch(url) {
 	const [products, setProducts] = useState([])
@@ -29,4 +32,11 @@ export function useFetch(url) {
 
 	return { products, loading };
 
+	// // ------------------------------------------------------------------------------------
+
+	// axios
+    //     .get(url)
+    //     .then(response => {
+    //         setProductList(response.data);
+    //     })
 }

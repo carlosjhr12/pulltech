@@ -1,6 +1,10 @@
 import React from 'react'
 import './Card.scss'
-import Icon from '../Images/magnifying-glass.svg'
+import { IconButton, Button } from '@mui/material'
+import { AddShoppingCart, ShoppingCart } from '@mui/icons-material'
+import { CardContent, Typography } from '@mui/material'
+import { ThemeProvider } from '@mui/material/styles';
+import { theme } from './colorTheme.js'
 
 export const Card = ({name, originalPrice, descount, available, finalPrice, img}) => {
 
@@ -11,24 +15,31 @@ export const Card = ({name, originalPrice, descount, available, finalPrice, img}
 			<p>{available}</p>
 		</div>
 		<div className="description-info">
-			<div className="product-container">
-				<h3 className='product-name'>{name}</h3>
-				<p className='free-shipping'>Free Shipping</p>
-			</div>
+			<CardContent sx={{padding: 0}}>
+				<Typography variant="h6" noWrap={true}>
+					{name}
+				</Typography>
+				<Typography variant="p" color="text.secondary">
+					Free Shipping
+				</Typography>
+			</CardContent>
 			<div className="price-container">
 				<div className="price">
 					<p className='final-price'>{`$${finalPrice.toFixed(2)}`}</p>
 					<p className="descount">{`${descount}%`}</p>
 					<p className="original-price">{originalPrice}</p>
 				</div>
-				<div className="addSeller">
-					<img src={Icon} alt="Add seller" />
-				</div>
+				<ThemeProvider theme={theme}>
+					<IconButton color='primary' sx={{ borderRadius: 1}}>
+						<AddShoppingCart fontSize="small"/>
+					</IconButton>
+				</ThemeProvider>
 			</div>
-			<button>
-				<img src={Icon} alt="Add seller" />
-				<p>Buy Now</p>
-			</button>
+			<ThemeProvider theme={theme}>
+				<Button color='primary' variant="contained" startIcon={<ShoppingCart />}>
+					Buy Now
+				</Button>
+			</ThemeProvider>
 		</div>
 	</div>
   )
